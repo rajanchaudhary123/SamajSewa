@@ -1,0 +1,69 @@
+.btn-custom {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn-custom.btn-secondary {
+  background-color: #6c757d;
+  border: 2px solid #6c757d;
+  color: white;
+}
+
+.btn-custom.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.btn-custom.btn-warning {
+  background-color: #ffc107;
+  border: 2px solid #ffc107;
+  color: black;
+}
+
+.btn-custom.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+.btn-custom.btn-danger {
+  background-color: #dc3545;
+  border: 2px solid #dc3545;
+  color: white;
+}
+
+.btn-custom.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  align-items: center;
+  text-align: center;
+  color: #b81111;
+}
+.capitalize-words {
+  text-transform: capitalize;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .btn-custom {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

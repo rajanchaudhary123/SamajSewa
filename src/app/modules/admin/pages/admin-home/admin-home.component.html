@@ -1,0 +1,34 @@
+<h2 class="text-center mt-4 mb-4">All Activities</h2>
+<div class="container mt-4">
+  <div *ngIf="isLoading; else content">
+    <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+  </div>
+
+  <ng-template #content>
+    <div *ngIf="activities.length > 0; else noActivities" class="row">
+      <div *ngFor="let activity of activities" class="col-md-4 mb-4">
+        <div class="card activity-card">
+          <div class="card-header">
+            <h4 class="card-title"><p class="capitalize-words">{{ activity.title }}</p></h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text"><i class="bi bi-calendar icon-custom"></i> <span class="text-muted">{{ activity.date }}</span></p>
+            <p class="card-text"><i class="bi bi-clock icon-custom"></i> <span class="text-muted">{{ activity.time }}</span></p>
+            <p class="card-text"><i class="bi bi-geo-alt icon-custom"></i> <strong>Location:</strong> {{ activity.location }}</p>
+            <p class="card-text"><i class="bi bi-person icon-custom"></i> <strong>Organized By:</strong> {{ activity.organizedBy }}</p>
+            <p class="card-text"><i class="bi bi-telephone icon-custom"></i> <strong>Contact Number:</strong> {{ activity.contactNumber }}</p>
+            <p class="card-text"><i class="bi bi-people icon-custom"></i> <strong>People Involved:</strong> {{ activity.peopleInvolved }}</p>
+          </div>
+          <div class="card-footer text-center">
+            <a class="btn btn-custom" [routerLink]="['/admin/display', activity.activityId]">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noActivities>
+      <div class="alert alert-info text-center">
+        No activities available.
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

@@ -1,0 +1,190 @@
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-10">
+      <div class="card shadow-lg">
+        <div
+          class="card-header bg-gradient-primary text-white text-center py-3"
+        >
+          <h4>Update Profile</h4>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>person</mat-icon>
+                <input
+                  matInput
+                  formControlName="fullName"
+                  placeholder="Enter Full Name"
+                  required
+                />
+                <mat-error
+                  *ngIf="profileForm.get('fullName')?.hasError('required')"
+                >
+                  Full Name is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>email</mat-icon>
+                <input
+                  matInput
+                  formControlName="email"
+                  type="email"
+                  placeholder="Enter Email"
+                  required
+                />
+                <mat-error
+                  *ngIf="profileForm.get('email')?.hasError('required')"
+                >
+                  Email is required
+                </mat-error>
+                <mat-error *ngIf="profileForm.get('email')?.hasError('email')">
+                  Enter a valid email address
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>location_on</mat-icon>
+                <input
+                  matInput
+                  formControlName="location"
+                  placeholder="Enter Location"
+                  required
+                />
+                <mat-error
+                  *ngIf="profileForm.get('location')?.hasError('required')"
+                >
+                  Location is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>phone</mat-icon>
+                <input
+                  matInput
+                  formControlName="phone"
+                  type="tel"
+                  placeholder="Enter Phone Number"
+                  required
+                />
+                <mat-error
+                  *ngIf="profileForm.get('phone')?.hasError('required')"
+                >
+                  Phone number is required
+                </mat-error>
+                <mat-error
+                  *ngIf="profileForm.get('phone')?.hasError('pattern')"
+                >
+                  Phone number must contain only numbers
+                </mat-error>
+                <mat-error
+                  *ngIf="profileForm.get('phone')?.hasError('minlength')"
+                >
+                  Phone number must be at least 10 digits long
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>cake</mat-icon>
+                <input
+                  matInput
+                  formControlName="age"
+                  type="number"
+                  placeholder="Enter Age"
+                  required
+                />
+                <mat-error *ngIf="profileForm.get('age')?.hasError('required')">
+                  Age is required
+                </mat-error>
+                <mat-error *ngIf="profileForm.get('age')?.hasError('min')">
+                  Age must be at least 1
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>account_circle</mat-icon>
+                <mat-select
+                  formControlName="sex"
+                  placeholder="Select Gender"
+                  required
+                >
+                  <mat-option value="Male">Male</mat-option>
+                  <mat-option value="Female">Female</mat-option>
+                  <mat-option value="Other">Other</mat-option>
+                </mat-select>
+                <mat-error *ngIf="profileForm.get('sex')?.hasError('required')">
+                  Gender is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <label for="profile">Upload Profile Picture</label>
+              <input
+                type="file"
+                id="profile"
+                (change)="onFileSelected($event)"
+              />
+              <div *ngIf="uploadPercent | async as percent">
+                <p>Upload Progress: {{ percent }}%</p>
+              </div>
+              <div *ngIf="downloadURL | async as url">
+                <p>
+                  File available at:
+                  <a [href]="url" target="_blank">{{ url }}</a>
+                </p>
+                <img [src]="url" *ngIf="url" width="100" />
+              </div>
+            </div>
+
+            <div class="text-center mt-2">
+              <button
+                mat-raised-button
+                type="submit"
+                class="btn btn-primary btn-lg w-100"
+                [disabled]="profileForm.invalid"
+              >
+                Update Profile
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

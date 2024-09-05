@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <div class="card shadow-lg rounded">
+    <div class="card-body">
+      <h2 class="card-title"><p class="capitalize-words">{{ activity?.title || "No Title" }}</p></h2>
+      <p class="card-text">
+        <strong>Date:</strong> {{ activity?.date | date: "MMMM d, y" || "N/A" }}<br />
+        <strong>Time:</strong> {{ activity?.time || "N/A" }}<br />
+        <strong>Location:</strong> {{ activity?.location || "N/A" }}<br />
+        <strong>Contact Number:</strong> {{ activity?.contactNumber || "N/A" }}<br />
+        <strong>People Involved:</strong> {{ activity?.peopleInvolved || 0 }}<br />
+        <strong>Description:</strong> {{ activity?.description || "N/A" }}
+      </p>
+      <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-custom btn-secondary" (click)="goBack()">
+          Back
+        </button>
+        <button class="btn btn-custom btn-warning" (click)="editActivity()">
+          Edit
+        </button>
+        <button class="btn btn-custom btn-danger" (click)="deleteActivity()">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

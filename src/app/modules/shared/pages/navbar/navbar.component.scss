@@ -1,0 +1,66 @@
+.nav-link {
+  cursor: pointer;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #b81111;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: #b81111;
+}
+
+.navbar-nav .nav-item .nav-link mat-icon {
+  margin-right: 0.5rem;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  color: #ffffff;
+}
+
+.collapse.navbar-collapse {
+  flex-grow: 1;
+  transition: max-height 0.3s ease-in-out;
+  max-height: 100vh;
+}
+
+.collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    text-align: center;
+    background-color: #b81111;
+    width: 100%;
+    }
+    .navbar-nav .nav-item .nav-link {
+      color: white;
+      text-align: left;
+      align-items: left;
+      
+    }
+    .navbar-toggler-icon {
+      color: #ffffff;
+      font-size: 0.4rem;
+    }
+}
+

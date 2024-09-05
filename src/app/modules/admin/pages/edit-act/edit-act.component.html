@@ -1,0 +1,173 @@
+<div class="container-fluid mt-8">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-10">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center">
+          <h4>Edit Activity</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-4">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Title</mat-label>
+                <input
+                  matInput
+                  formControlName="title"
+                  placeholder="Enter Title"
+                  required
+                />
+                <mat-error
+                  *ngIf="activityForm.get('title')?.hasError('required')"
+                >
+                  Title is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group mb-4">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea
+                  matInput
+                  formControlName="description"
+                  placeholder="Enter Description"
+                  required
+                ></textarea>
+                <mat-error
+                  *ngIf="activityForm.get('description')?.hasError('required')"
+                >
+                  Description is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group mb-4">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Date</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="date"
+                  placeholder="Choose a date"
+                  required
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error
+                  *ngIf="activityForm.get('date')?.hasError('required')"
+                >
+                  Date is required
+                </mat-error>
+                <mat-error
+                  *ngIf="activityForm.get('date')?.hasError('invalidDate')"
+                >
+                  The date must be in the future.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group mb-4">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Time</mat-label>
+                <input
+                  matInput
+                  [ngxTimepicker]="timepicker"
+                  formControlName="time"
+                  placeholder="Choose a time"
+                  required
+                />
+                <ngx-material-timepicker #timepicker></ngx-material-timepicker>
+                <mat-error
+                  *ngIf="activityForm.get('time')?.hasError('required')"
+                >
+                  Time is required
+                </mat-error>
+                <mat-error
+                  *ngIf="activityForm.get('time')?.hasError('invalidTime')"
+                >
+                  The time must be in the future.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group mb-4">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Location</mat-label>
+                <input
+                  matInput
+                  formControlName="location"
+                  placeholder="Enter Location"
+                  required
+                />
+                <mat-error
+                  *ngIf="activityForm.get('location')?.hasError('required')"
+                >
+                  Location is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group mb-4">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Organized By</mat-label>
+                <input
+                  matInput
+                  formControlName="organizedBy"
+                  placeholder="Enter Organizer's Name"
+                  required
+                />
+                <mat-error
+                  *ngIf="activityForm.get('organizedBy')?.hasError('required')"
+                >
+                  Organizer's name is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group mb-4">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Contact Number</mat-label>
+                <input
+                  matInput
+                  formControlName="contactNumber"
+                  placeholder="Enter Contact Number"
+                  type="tel"
+                  required
+                />
+                <mat-error
+                  *ngIf="
+                    activityForm.get('contactNumber')?.hasError('required')
+                  "
+                >
+                  Contact number is required
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    activityForm.get('contactNumber')?.hasError('minlength')
+                  "
+                >
+                  Invalid phone number format
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="text-center">
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="!activityForm.valid || isLoading"
+              >
+                Update Activity
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

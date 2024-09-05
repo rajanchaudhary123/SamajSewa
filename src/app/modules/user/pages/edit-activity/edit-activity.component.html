@@ -1,0 +1,217 @@
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-10">
+      <div class="card shadow-lg">
+        <div
+          class="card-header bg-gradient-primary text-white text-center py-3"
+        >
+          <h4>Edit Activity</h4>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>title</mat-icon>
+                <input
+                  matInput
+                  formControlName="title"
+                  placeholder="Enter Activity Title"
+                  required
+                  (focus)="onFocus('title')"
+                  (blur)="onBlur('title')"
+                />
+                <mat-error
+                  *ngIf="activityForm.get('title')?.hasError('required')"
+                >
+                  Title is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>description</mat-icon>
+                <textarea
+                  matInput
+                  formControlName="description"
+                  placeholder="Enter Activity Description"
+                  rows="3"
+                  required
+                  (focus)="onFocus('description')"
+                  (blur)="onBlur('description')"
+                ></textarea>
+                <mat-error
+                  *ngIf="activityForm.get('description')?.hasError('required')"
+                >
+                  Description is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>calendar_today</mat-icon>
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="date"
+                  placeholder="Choose a date"
+                  required
+                  (focus)="onFocus('date')"
+                  (blur)="onBlur('date')"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error
+                  *ngIf="activityForm.get('date')?.hasError('required')"
+                >
+                  Date is required
+                </mat-error>
+                <mat-error
+                  *ngIf="activityForm.get('date')?.hasError('invalidDate')"
+                >
+                  The date must be in the future.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>access_time</mat-icon>
+                <input
+                  matInput
+                  [ngxTimepicker]="timepicker"
+                  formControlName="time"
+                  placeholder="Choose a time"
+                  required
+                  (focus)="onFocus('time')"
+                  (blur)="onBlur('time')"
+                />
+                <ngx-material-timepicker #timepicker></ngx-material-timepicker>
+                <mat-error
+                  *ngIf="activityForm.get('time')?.hasError('required')"
+                >
+                  Time is required
+                </mat-error>
+                <mat-error
+                  *ngIf="activityForm.get('time')?.hasError('invalidTime')"
+                >
+                  The time must be in the future.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>location_on</mat-icon>
+                <input
+                  matInput
+                  formControlName="location"
+                  placeholder="Enter Location"
+                  required
+                  (focus)="onFocus('location')"
+                  (blur)="onBlur('location')"
+                />
+                <mat-error
+                  *ngIf="activityForm.get('location')?.hasError('required')"
+                >
+                  Location is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>person</mat-icon>
+                <input
+                  matInput
+                  formControlName="organizedBy"
+                  placeholder="Enter Organizer's Name"
+                  required
+                  (focus)="onFocus('organizedBy')"
+                  (blur)="onBlur('organizedBy')"
+                />
+                <mat-error
+                  *ngIf="activityForm.get('organizedBy')?.hasError('required')"
+                >
+                  Organizer's name is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field
+                class="w-100"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-icon matPrefix>phone</mat-icon>
+                <input
+                  matInput
+                  formControlName="contactNumber"
+                  placeholder="Enter Contact Number"
+                  type="tel"
+                  required
+                  (focus)="onFocus('contactNumber')"
+                  (blur)="onBlur('contactNumber')"
+                />
+                <mat-error
+                  *ngIf="
+                    activityForm.get('contactNumber')?.hasError('required')
+                  "
+                >
+                  Contact number is required
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    activityForm.get('contactNumber')?.hasError('minlength')
+                  "
+                >
+                  Invalid phone number format
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="text-center mt-2">
+              <button
+                mat-raised-button
+                type="submit"
+                class="btn btn-primary btn-lg w-100"
+                [disabled]="!activityForm.valid || isLoading"
+              >
+                Update Activity
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

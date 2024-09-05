@@ -1,0 +1,70 @@
+.btn-custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.btn-custom mat-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.btn-custom.btn-favorite {
+  background-color: #17a2b8;
+  border: 2px solid #17a2b8;
+  color: white;
+}
+
+.btn-custom.btn-favorite:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.btn-custom.btn-primary {
+  background-color: #007bff;
+  border: 2px solid #007bff;
+  color: white;
+}
+
+.btn-custom.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  align-items: center;
+  text-align: center;
+  color: #b81111;
+}
+
+.capitalize-words {
+  text-transform: capitalize;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .btn-custom {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,107 @@
+/* Navbar styles */
+h1{
+    color: #b81111;
+}
+.navbar-brand{
+    color: #b81111;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Home container */
+.home-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero {
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.details-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.feature-card {
+  text-align: center;
+  align-items: center;
+}
+
+mat-card-header mat-icon {
+  font-size: 24px;
+  margin-right: 20px;
+  color: #b81111;
+}
+
+mat-card-title {
+  font-weight: 600px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.custom-button {
+  background-color: #b81111;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  border: none;
+}
+
+.custom-button:hover {
+  background-color: #a01010;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.custom-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(184, 17, 17, 0.5);
+}
+
+.custom-button:disabled {
+  background-color: #d3d3d3;
+  color: #a0a0a0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .details-section {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2>Verify Activities</h2>
+    <div *ngIf="activities.length > 0; else noActivities">
+      <div *ngFor="let activity of activities" class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ activity.title }}</h5>
+          <p class="card-text">{{ activity.description }}</p>
+          <p class="card-text">
+            <strong>Location:</strong> {{ activity.location }}
+          </p>
+          <p class="card-text">
+            <strong>Date:</strong> {{ activity.date | date }}
+          </p>
+          <p class="card-text">
+            <strong>Time:</strong> {{ activity.time }}
+          </p>
+          <p class="card-text">
+            <strong>Organized By:</strong> {{ activity.organizedBy }}
+          </p>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="verifyActivity(activity.id)"
+            [disabled]="activity.verified"
+          >
+            {{ activity.verified ? 'Verified' : 'Verify' }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <ng-template #noActivities>
+      <p class="text-center">No activities to verify.</p>
+    </ng-template>
+  </div>
+  

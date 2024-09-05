@@ -1,0 +1,36 @@
+.mat-form-field-appearance-outline.mat-form-field-has-label .mat-form-field-outline {
+  padding-top: 0;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-has-label .mat-form-field-label {
+  display: none;
+}
+
+.mat-form-field-appearance-outline {
+  margin-bottom: 20px;
+}
+
+input[matInput], textarea[matInput] {
+  font-size: 16px;
+  // padding: 10px 12px;
+}
+
+.mat-icon {
+  color: #1976d2;
+}
+button[type="submit"]{
+  color: white;
+}
+
+button[type="submit"] {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #b81111;
+  border-radius: 50px;
+}
+button[type="submit"]:hover {
+  background-color: antiquewhite;
+}
+h4{
+  color: #b81111;
+}

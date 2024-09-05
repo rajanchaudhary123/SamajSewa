@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <div class="card shadow-lg rounded">
+    <div class="card-body">
+      <h2 class="card-title capitalize-words">{{ activity?.title || "No Title" }}</h2>
+      <p class="card-text">
+        <strong>Date:</strong> {{ activity?.date | date : "MMMM d, y" || "N/A" }}<br />
+        <strong>Time:</strong> {{ activity?.time || "N/A" }}<br />
+        <strong>Location:</strong> {{ activity?.location || "N/A" }}<br />
+        <strong>Contact Number:</strong> {{ activity?.contactNumber || "N/A" }}<br />
+        <strong>People Involved:</strong> {{ activity?.peopleInvolved || 0 }}<br />
+        <strong>Description:</strong> {{ activity?.description || "N/A" }}
+      </p>
+      <div class="d-flex justify-content-between mt-3">
+        <button
+          class="btn btn-custom btn-favorite"
+          (click)="toggleFavorite()"
+        >
+          <mat-icon>{{ isFavorited ? "favorite" : "favorite_border" }}</mat-icon>
+          {{ isFavorited ? "Not interested" : "Interested" }}
+        </button>
+        <button
+          class="btn btn-custom btn-primary"
+          (click)="goBack()"
+        >
+          <mat-icon>arrow_back</mat-icon>
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

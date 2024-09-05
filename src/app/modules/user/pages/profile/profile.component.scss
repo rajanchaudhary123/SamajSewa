@@ -1,0 +1,68 @@
+.container {
+  max-width: 800px;
+  margin-top: 2rem;
+}
+
+.profile-card {
+  border-radius: 1rem;
+  background-color: #f8f9fa;
+}
+
+.card-header {
+  background-color: #181818;
+  color: white;
+  padding: 1.5rem;
+  border-bottom: 2px solid #0056b3;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.75rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.card-body {
+  padding: 2rem;
+  font-size: 1rem;
+  color: #495057;
+}
+
+.card-body p {
+  margin-bottom: 0.75rem;
+}
+
+.card-footer {
+  padding: 1rem;
+  background-color: #ffffff;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn-custom {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-custom:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.btn-custom:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}

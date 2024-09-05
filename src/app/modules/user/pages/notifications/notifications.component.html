@@ -1,0 +1,54 @@
+<div *ngIf="isLoading" class="text-center mt-4">
+  <ngx-skeleton-loader
+    count="5"
+    appearance="circle"
+  >
+  </ngx-skeleton-loader>
+</div>
+
+<div *ngIf="!isLoading; else noNotifications" class="container mt-4">
+  <div *ngIf="notifications.length > 0">
+    <div
+      *ngFor="let notification of notifications"
+      class="notification-card card mb-3"
+    >
+      <div class="card-body">
+        <p class="card-text">
+          The activity <strong>{{ notification.title }}</strong> is happening
+          tomorrow. Please come in time. Click here for more details about the
+          activity:
+        </p>
+        <div class="button-group">
+          <a
+            [routerLink]="['/detail', notification.activityId]"
+            class="btn btn-primary"
+            >Click Here</a
+          >
+          <button
+            [ngClass]="{
+              'btn-secondary': !notification.read,
+              'btn-success': notification.read
+            }"
+            mat-button
+            (click)="markAsRead(notification.id)"
+            class="ml-2"
+          >
+            {{ notification.read ? "Already Read" : "Mark as Read" }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noNotifications>
+  <div class="no-notifications-container">
+    <div class="no-notifications-message text-center">
+      <h4>No New Notifications</h4>
+      <p>
+        You don't have any new notifications at the moment. Check back later for
+        updates.
+      </p>
+    </div>
+  </div>
+</ng-template>

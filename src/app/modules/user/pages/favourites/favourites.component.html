@@ -1,0 +1,28 @@
+<h2 class="text-center mt-4 mb-4">Interested to Go</h2>
+<div class="container mt-4">
+  <div *ngIf="favorite?.length > 0; else noActivities" class="row">
+    <div *ngFor="let data of favorite" class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card activity-card">
+        <div class="card-header">
+          <h4 class="card-title"><p class="capitalize-words">{{ data.title }}</p></h4>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><i class="bi bi-calendar icon-custom"></i> <span class="text-muted">{{ data.date | date: 'MMMM d, y' }}</span></p>
+          <p class="card-text"><i class="bi bi-clock icon-custom"></i> <span class="text-muted">{{ data.time }}</span></p>
+          <p class="card-text"><i class="bi bi-geo-alt icon-custom"></i> <strong>Location:</strong> {{ data.location }}</p>
+          <p class="card-text"><i class="bi bi-person icon-custom"></i> <strong>Organized By:</strong> {{ data.organizedBy }}</p>
+          <p class="card-text"><i class="bi bi-telephone icon-custom"></i> <strong>Contact Number:</strong> {{ data.contactNumber }}</p>
+          <p class="card-text"><i class="bi bi-people icon-custom"></i> <strong>People Involved:</strong> {{ data.peopleInvolved }}</p>
+        </div>
+        <div class="card-footer text-center">
+          <a class="btn btn-custom" [routerLink]="['/detail', data.activityId]">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noActivities>
+    <div class="alert alert-info text-center">
+      No activities you are interested in.
+    </div>
+  </ng-template>
+</div>
